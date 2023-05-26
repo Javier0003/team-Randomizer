@@ -1,0 +1,1 @@
+// splice para eliminar las partes del array
