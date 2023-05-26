@@ -23,11 +23,11 @@ body {
     font-family: Montserrat;
     margin-bottom: 10px;
 }
-.boton-randomizar{
+.boton-random{
     background: #ff525a;
     border: 0px;
     border-radius: 5px;
-    width: 100px;
+    width: 150px;
     height: 50px;
     font-size: 20px;
     font-family: Montserrat;
