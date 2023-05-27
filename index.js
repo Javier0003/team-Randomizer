@@ -1,4 +1,3 @@
-// splice para eliminar las partes del array
 const insertBtn = document.getElementById("boton-insertar");
 const randomBtn = document.getElementById("boton-random");
 const insertarNombres = document.getElementById("input-nombres");
