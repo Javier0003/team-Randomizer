@@ -29,8 +29,9 @@ randomBtn.addEventListener("click", function() {
         unsortedNames.splice(sorting, 1);
         contador += 1;
         console.log(contador);
+        console.log(sortedNames)
     }
-    if (contador === 10){
+    if (contador === sortedNames.length){
         equipo2.innerHTML = "";
         equipo1.innerHTML = "";
         for (let i = 0; i < sortedNames.length; i++) {
