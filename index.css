@@ -9,7 +9,7 @@ body {
 .container{
     margin-left: 37%;
     margin-top: 10%;
-    width: 50%;
+    width: 50.5%;
     padding: 10px;
     border-radius: 5%;
 }
@@ -18,7 +18,7 @@ body {
     background: #8EFF98;
     border: 0px;
     border-radius: 5px;
-    width: 100px;
+    width: 12%;
     height: 50px;
     font-size: 20px;
     font-family: Montserrat;
@@ -28,19 +28,20 @@ body {
     background: #ff525a;
     border: 0px;
     border-radius: 5px;
-    width: 150px;
+    width: 15%;
     height: 50px;
     font-size: 20px;
     font-family: Montserrat;
     margin-bottom: 10px;
 }
 input{
-    width: 40%;
+    width: 40.5%;
     height: 45px;
     font-size: 30px;
     font-family: Montserrat;
     margin-bottom: 10px;
     border-radius: 6px;
+    border: 0px;
 }
 
 .lista {
@@ -59,9 +60,15 @@ input{
     background: #ff743c;
     border: 0px;
     border-radius: 5px;
-    width: 150px;
+    width: 13%;
     height: 50px;
     font-size: 20px;
     font-family: Montserrat;
     margin-bottom: 10px;
+}
+
+h1{
+    border-bottom: 3px solid plum;
+    width: 390px;
+    border-right: 3px solid plum;
 }
