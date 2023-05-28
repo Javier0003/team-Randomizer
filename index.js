@@ -22,16 +22,21 @@ randomBtn.addEventListener("click", function() {
     contador = 0;
     listTeam1 = "";
     listTeam2 = "";
-    while (unsortedNames.length > 0 ){
-        let sorting;
-        sorting = Math.floor(Math.random() * unsortedNames.length);
+    if (unsortedNames.length === 0){
+        for (let i = 0; i < sortedNames.length; i++) {
+        unsortedNames.push(sortedNames[i]);
+        }
+        sortedNames = [];
+    }
+
+    while (unsortedNames.length > 0){ //randomizador de nombres
+        let sorting = Math.floor(Math.random() * unsortedNames.length);
         sortedNames.push(unsortedNames[sorting]);
         unsortedNames.splice(sorting, 1);
         contador += 1;
-        console.log(contador);
-        console.log(sortedNames)
     }
-    if (contador === sortedNames.length){
+
+    if (contador === sortedNames.length){ //print de los nombres random
         equipo2.innerHTML = "";
         equipo1.innerHTML = "";
         for (let i = 0; i < sortedNames.length; i++) {
@@ -51,14 +56,11 @@ clearBtn.addEventListener("click", function() {
     listTeam1 = "";
     listTeam2 = "";
     sortedNames = [];
-    listTeam1 = "";
-    listTeam2 = "";
 });
 
 function renderNames() {
     listTeam1 = "";
     listTeam2 = "";
-    console.log(unsortedNames);
     for (let i = 0; i < unsortedNames.length; i++) {
         listTeam1 += "<li>" + unsortedNames[i] + "</li>";  
         i++;
