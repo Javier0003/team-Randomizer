@@ -69,4 +69,3 @@ function renderNames() {
     equipo2.innerHTML = listTeam2;
     equipo1.innerHTML = listTeam1;
 }
-
