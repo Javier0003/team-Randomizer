@@ -15,6 +15,9 @@ insertBtn.addEventListener("click", function() {
     unsortedNames.push(insertarNombres.value);
     renderNames()
     }
+    if (insertarNombres != ""){
+        insertarNombres.value = '';
+    }
 });
 
 randomBtn.addEventListener("click", function() {
