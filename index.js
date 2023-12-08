@@ -1,86 +1,70 @@
-const insertBtn = document.getElementById("boton-insertar");
-const randomBtn = document.getElementById("boton-random");
+const btns = {
+  insert: document.getElementById("boton-insertar"),
+  random: document.getElementById("boton-random"),
+  clear: document.getElementById("boton-limpiar"),
+};
 const insertarNombres = document.getElementById("input-nombres");
-const clearBtn = document.getElementById("boton-limpiar");
-let equipo1 = document.getElementById("players");
-let equipo2 = document.getElementById("players2");
-let unsortedNames = [];
-let sortedNames = [];
-let listTeam1 = "";
-let listTeam2 = "";
-insertBtn.addEventListener("click", function () {
-  add();
+const displays = {
+  team1: document.getElementById("players"),
+  team2: document.getElementById("players2"),
+  nameList: document.getElementById("allNames"),
+};
+
+const unsortedNames = [];
+unsortedNames.map((item, index) => {
+  printList(item);
 });
 
-randomBtn.addEventListener("click", function () {
-  random();
+btns.insert.addEventListener("click", function () {
+  insertFunction();
 });
 
-clearBtn.addEventListener("click", function () {
-  clear();
+btns.random.addEventListener("click", function () {
+  displays.team1.innerHTML = "";
+  displays.team2.innerHTML = "";
+  const sorted = unsortedNames.sort(() => 0.5 - Math.random());
+  const midPoint = Math.ceil(sorted.length / 2);
+  let team1, team2;
+
+  if (sorted.length % 2 === 0) {
+    team1 = sorted.slice(0, midPoint);
+    team2 = sorted.slice(midPoint);
+    print(team1, team2);
+    return;
+  }
+  team1 = sorted.slice(0, midPoint);
+  team2 = sorted.slice(midPoint);
+  print(team1, team2);
 });
 
-function renderNames() {
-  listTeam1 = "";
-  listTeam2 = "";
-  for (let i = 0; i < unsortedNames.length; i++) {
-    listTeam1 += "<li>" + unsortedNames[i] + "</li>";
-    i++;
-    listTeam2 += "<li>" + unsortedNames[i] + "</li>";
-  }
-  equipo2.innerHTML = listTeam2;
-  equipo1.innerHTML = listTeam1;
-}
-
-function add() {
-  if (unsortedNames.length < 10) {
-    unsortedNames.push(insertarNombres.value);
-    renderNames();
-  }
-  if (insertarNombres != "") {
-    insertarNombres.value = "";
-  }
-}
-
-function clear() {
+btns.clear.addEventListener("click", function () {
   unsortedNames = [];
-  equipo1.innerHTML = "";
-  equipo2.innerHTML = "";
-  listTeam1 = "";
-  listTeam2 = "";
-  sortedNames = [];
+  displays.team1.innerHTML = "";
+  displays.team2.innerHTML = "";
+  displays.nameList.innerHTML = "";
+});
+
+addEventListener("keydown", function (e) {
+  if (e.code === "Enter") insertFunction();
+});
+
+function print(a, b) {
+  a.map((item) => {
+    displays.team1.innerHTML += `<li>${item}</li>`;
+  });
+  b.map((item) => {
+    displays.team2.innerHTML += `<li>${item}</li>`;
+  });
 }
 
-function random() {
-  let contador = 0;
-  contador = 0;
-  listTeam1 = "";
-  listTeam2 = "";
-  if (unsortedNames.length === 0) {
-    for (let i = 0; i < sortedNames.length; i++) {
-      unsortedNames.push(sortedNames[i]);
-    }
-    sortedNames = [];
-  }
+function printList(a) {
+  displays.nameList.innerHTML += `<li>${a}</li>`;
+}
 
-  while (unsortedNames.length > 0) {
-    //randomizador de nombres
-    let sorting = Math.floor(Math.random() * unsortedNames.length);
-    sortedNames.push(unsortedNames[sorting]);
-    unsortedNames.splice(sorting, 1);
-    contador += 1;
+function insertFunction() {
+  if (insertarNombres.value.length !== 0 && unsortedNames.length <= 10) {
+    unsortedNames.push(insertarNombres.value);
+    printList(insertarNombres.value);
   }
-
-  if (contador === sortedNames.length) {
-    //print de los nombres random
-    equipo2.innerHTML = "";
-    equipo1.innerHTML = "";
-    for (let i = 0; i < sortedNames.length; i++) {
-      listTeam1 += "<li>" + sortedNames[i] + "</li>";
-      i++;
-      listTeam2 += "<li>" + sortedNames[i] + "</li>";
-    }
-    equipo2.innerHTML = listTeam2;
-    equipo1.innerHTML = listTeam1;
-  }
+  if (insertarNombres !== "") insertarNombres.value = "";
 }
