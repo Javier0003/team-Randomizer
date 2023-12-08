@@ -62,7 +62,7 @@ function printList(a) {
 }
 
 function insertFunction() {
-  if (insertarNombres.value.length !== 0 && unsortedNames.length <= 10) {
+  if (insertarNombres.value.length !== 0 && unsortedNames.length <= 9) {
     unsortedNames.push(insertarNombres.value);
     printList(insertarNombres.value);
   }
