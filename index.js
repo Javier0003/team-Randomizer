@@ -11,9 +11,6 @@ const displays = {
 };
 
 const unsortedNames = [];
-unsortedNames.map((item, index) => {
-  printList(item);
-});
 
 btns.insert.addEventListener("click", function () {
   insertFunction();
